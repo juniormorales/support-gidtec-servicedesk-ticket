@@ -1,0 +1,56 @@
+spring:
+  cloud:
+    config:
+      enabled: false
+  application:
+    name: support-gidtec-servicedesk-ticket
+  data:
+    mongodb:
+      uri: mongodb+srv://juniormoralesbrenis:sj7EX9iTxHWKiXob@cluster0.arspgug.mongodb.net/gidtec-servicedesk-db?retryWrites=true&w=majority
+  main:
+    allow-bean-definition-overriding: true
+
+application:
+  openapi:
+    info:
+      title: Service Desk Tickets
+      description: Permite la gestion de tickets por rol de usuario, registro y seguimiento de respuestas, asi como la creacion de historial y cuestionarios
+      version: 1.0.0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+audit-properties:
+  status-code:
+    IN: INACTIVO
+    AC: ACTIVO
+ticket-properties:
+  type-code:
+    CO: CONSULTA
+    RE: REQUERIMIENTO
+    IN: INCIDENCIA
+  category-code:
+    DI: DISPOSITIVO
+    PC: PC
+    SE: SERVIDORES
+    FW: FIREWALL
+    IN: INALAMBRICO
+    AS: ANTISPAM
+    BL: BALANCEADOR
+    OT: OTRO
+  status-code:
+    RE: RESULETO
+    CE: CERRADO
+    PR: PROCESO
+    AB: ABIERTO
+    CA: CANCELADO
+questionnaire-properties:
+  status-code:
+    PE: PENDIENTE
+    CO: COMPLETADO
+
+server:
+  port: 8084
